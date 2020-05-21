@@ -47,12 +47,15 @@ class MainActivity : AppCompatActivity() {
 
         binding.apply {
 
-            //myName?.nickname = nicknameEdit.text.toString()
+            //allow myName to be a nullable
+            myName?.nickname = nicknameEdit.text.toString()
+            Log.d("myName", "value of myName is: ")
+            Log.d("myName",myName?.nickname.toString())
 
             // Invalidate all binding expressions and request a new rebind to refresh UI
             invalidateAll()
 
-            nicknameText.text = nicknameEdit.text.toString()
+            //nicknameText.text = nicknameEdit.text.toString()
 
             //hide editText
             nicknameEdit.visibility = View.GONE
