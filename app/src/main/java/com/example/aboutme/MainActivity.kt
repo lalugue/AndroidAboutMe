@@ -6,6 +6,8 @@ import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Button
+import android.view.inputmethod.InputMethodManager
+import android.content.Context
 
 
 class MainActivity : AppCompatActivity() {
@@ -16,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
         //set listener of button
         findViewById<Button>(R.id.done_button).setOnClickListener{
-            addNickname(it)
+            addNickname(it) //it as "self"
         }
     }
 
@@ -35,6 +37,10 @@ class MainActivity : AppCompatActivity() {
         view.visibility = View.GONE
         //make nickname appear
         nicknameTextView.visibility = View.VISIBLE
+
+        // Hide the keyboard.
+        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(view.windowToken, 0)
 
     }
 
